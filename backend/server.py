@@ -15,6 +15,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 app = Flask(__name__)
+print(app.name)
 ALLOWED_EXTENSIONS = {'pdf', 'docx'}
 db_uri = os.environ['DATABASE_URL'].replace("postgresql://", "cockroachdb://")
 db_uri2 = os.environ['DATABASE_URL']
@@ -144,7 +145,8 @@ def deleteAll():
         
         deleteApplicant(d['applicant_id'])
             
-            
+if __name__ == '__main__':
+    app.run()           
                                     
      
 # getApplicantData()
